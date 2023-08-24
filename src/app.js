@@ -13,7 +13,7 @@ const manag = new ProductManager("./productos.txt") // Creo una instancia de la 
 app.get('/products', (req, res) => { //endpoint
     const limit = req.query.limit
     const products = manag.getProducts()//Llamo al método de ProductManager que lee el archivo, me devuelve todos los productos y lo cargo en un array
-    if (limit) { // Verifico si recibí el parámetro limit en un query param
+    if (limit) { // Verifico si recibí el parámetro limit 
         return res.send(products.slice(0, parseInt(limit, 10))) // extrae los primeros "n" elementos del array
     } // (el return está para obligar a salir de la función)
     res.send(products)
